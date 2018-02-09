@@ -171,13 +171,9 @@ int main(){
     //Read the color data in from our txt file
     
     for(int i=0;i<height;i++){
-    
         for(int j=0;j<width;j++){
-        
             ifile>>imgArray[i][j].r>>imgArray[i][j].g>>imgArray[i][j].b;            
-            
         }
-        
     }
     
     //We could make any changes we want to the color image here
@@ -193,17 +189,10 @@ int main(){
     ofile<<width<<" "<<height<<endl;
     
     for(int i=0;i<height;i++){
-    
         for(int j=0;j<width;j++){
-        
             ofile<<imgArray[i][j].r<<" "<<imgArray[i][j].g<<" "<<imgArray[i][j].b<<" ";
-            
-        }
-        
-        ofile<<endl;
-        
+       }
+       ofile<<endl;
     }   
-    
   return 0;
-  
 }
