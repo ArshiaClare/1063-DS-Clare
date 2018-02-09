@@ -56,8 +56,11 @@ struct rgb{
 void grayScale(rgb** image,int width,int height){
 
     int r,g,b,gray;
+    
     for(int i=0;i<height;i++){
+    
         for(int j=0;j<width;j++){
+        
             r = image[i][j].r;
             g = image[i][j].g;
             b = image[i][j].b;
