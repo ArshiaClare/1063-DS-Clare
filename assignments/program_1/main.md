@@ -34,13 +34,10 @@ using namespace std;
 /**
 Structure to hold an rgb value
 */
-
 struct rgb{
 
     int r;
-    
     int g;
-    
     int b;
     
 };
@@ -59,23 +56,16 @@ struct rgb{
 void grayScale(rgb** image,int width,int height){
 
     int r,g,b,gray;
-    
     for(int i=0;i<height;i++){
-    
         for(int j=0;j<width;j++){
-        
             r = image[i][j].r;
-            
             g = image[i][j].g;
-            
             b = image[i][j].b;
             
             gray = (r+g+b)/3;
             
             image[i][j].r = gray;
-            
             image[i][j].g = gray;
-            
             image[i][j].b = gray;
             
         }
@@ -99,27 +89,18 @@ void grayScale(rgb** image,int width,int height){
 void flipVert(rgb** image,int width,int height){
 
   int i, k , j;
-  
-    rgb** temp = new rgb*[height];
-    
+  rgb** temp = new rgb*[height];
     for(int i=0;i<height;i++){
-    
         temp[i] = new rgb[width]; //Now allocate each row of rgb's
-        
     }
     
     //this loop does the flipping
     
     for(i = 0 , k= height-1; i < height/2, k > height/2; i++, k--){
-    
       for(j =0 ; j < width; j++){
-      
         temp[i][j] = image[i][j];
-        
         image[i][j] = image[k][j];
-        
         image[k][j] = temp[i][j];
-        
       }
       
     }
@@ -139,19 +120,13 @@ void flipVert(rgb** image,int width,int height){
 */
 
 void flipHorz(rgb** image,int width,int height){
-
-  int g, k, j;
-  
+    int g, k, j;
     rgb** temp = new rgb*[height];
-    
     for(int i=0;i<height;i++){
-    
         temp[i] = new rgb[width]; //Now allocate each row of rgb's
-        
     }
     
     for (g = 0, k = width-1; g < width/2 , k >= width/2; g++, k--){
-    
       for (j = 0; j < height; j++){
       
         temp[j][g] = image[j][g];
@@ -159,7 +134,6 @@ void flipHorz(rgb** image,int width,int height){
         image[j][g] = image[j][k];
         
         image[j][k] = temp[j][g];
-        
       }
       
     }
