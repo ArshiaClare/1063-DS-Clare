@@ -89,8 +89,11 @@ void grayScale(rgb** image,int width,int height){
 void flipVert(rgb** image,int width,int height){
 
   int i, k , j;
+  
   rgb** temp = new rgb*[height];
+  
     for(int i=0;i<height;i++){
+    
         temp[i] = new rgb[width]; //Now allocate each row of rgb's
     }
     
@@ -123,7 +126,9 @@ void flipHorz(rgb** image,int width,int height){
     int g, k, j;
     rgb** temp = new rgb*[height];
     for(int i=0;i<height;i++){
+    
         temp[i] = new rgb[width]; //Now allocate each row of rgb's
+        
     }
     
     for (g = 0, k = width-1; g < width/2 , k >= width/2; g++, k--){
@@ -141,7 +146,8 @@ void flipHorz(rgb** image,int width,int height){
 }
 
 int main(){
-    ifstream ifile;          //Input / output files
+
+    ifstream ifile;          //Input n output files
     
     ofstream ofile;
     
