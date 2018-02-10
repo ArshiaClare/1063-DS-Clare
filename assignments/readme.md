@@ -1,2 +1,7 @@
-##Assignments
-| program_1        2/9/2018|
+## Assignments
+
+
+| Assignment | Date    |
+|------------|-----    |
+| program_1  | 2/9/2018|
+
