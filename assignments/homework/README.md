@@ -1,4 +1,4 @@
-`
+```
 //Arshia Clare
 //March 26, 2018
 //Homework
@@ -34,4 +34,4 @@ int main() {
   cout << toLower(x) << endl;
   cout << toUpper(x) << endl;
 }
-`
+```
