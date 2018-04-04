@@ -9,7 +9,11 @@
 // Author:           Arshia Clare
 // Email:            arshiaclare@gmail.com
 // Description:
-//This program reads in two words; first one is the condition to push or pop and second one is the word that is added to the list. Then in the push method the program will sort the input words in the order of high priority (smallest words). Then when the pop method is implicated the word with the highest priority comes out first.
+//This program reads in two words; first one is the condition to push or pop 
+//and second one is the word that is added to the list. Then in the push method
+//the program will sort the input words in the order of high priority 
+//(smallest words). Then when the pop method is implicated the word with the
+//highest priority comes out first.
 /////////////////////////////////////////////////////////////////////////////////
 
 /////////////////////////////////
