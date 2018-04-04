@@ -237,7 +237,7 @@ class Queue
     }
     
     /**
- * Remainder(ofstream &outfile)
+ * Leftovers(ofstream &outfile)
  * the method has Front stored in temp
  * this method is accessed after the pop method so it prints the words that didn't pop off. 
  * params: outfile called
