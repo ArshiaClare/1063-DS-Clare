@@ -156,7 +156,7 @@ class Queue
       Front = n;
     }
     
-    else{
+   else if(temp2 < temp){
       temp2->next = n;  //next pointer of temp2 points to n
       n->next = temp;   //its linking the pointers
     }
