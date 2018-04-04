@@ -1,4 +1,3 @@
-```
 ///////////////////////////////////////////////////////////////////////////////
 //                   YOU MUST COMPLETE AND COMMENT YOUR CODE!
 // Title:            Program 2
@@ -293,4 +292,3 @@ int main()
   }
   Q.LeftOvers(outfile);
 }
-```
