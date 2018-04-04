@@ -11,7 +11,8 @@
 //This program reads in two words; first one is the condition to push or pop 
 //and second one is the word that is added to the list. Then in the push method
 //the program will sort the input words in the order of high priority 
-//(smallest words). Then when the pop method is implicated the word with the
+//(smallest words) and by alphabethic order. 
+//Then when the pop method is implicated the word with the
 //highest priority comes out first.
 /////////////////////////////////////////////////////////////////////////////////
 
@@ -24,6 +25,7 @@
 //    void push()
 //    string pop()
 //    bool empty()
+//    void LeftOvers()
 //
 /////////////////////////////////
 
@@ -45,18 +47,18 @@ using namespace std;
 */
 struct Node
 {
-    string val;
-    Node *next;
-    Node()
-    {
-        val = " ";
-        next = NULL;
-    }
-    Node(string v)
-    {
-        val = v;
-        next = NULL;
-    }
+  string val;
+  Node *next;
+  Node()
+  {
+    val = " ";
+    next = NULL;
+  }
+  Node(string v)
+  {
+    val = v;
+    next = NULL;
+  }
 };
 
 /**
@@ -68,6 +70,7 @@ struct Node
 *  - void push(string v) : push method with parameters
 *  - bool empty() : checks if the list is empty and alerts us
 *  - bool pop(string &v) : pop method with parameters
+*  - void LeftOvers(ofstream &outfile) : prints anything not popped.
 */
 class Queue
 {
@@ -86,10 +89,10 @@ class Queue
    * returns:
    *    - none
    */
-    Queue()
-    {
-        Front = Rear = NULL;
-    }
+  Queue()
+  {
+    Front = Rear = NULL;
+  }
 
     /**
    * pop()
@@ -101,22 +104,22 @@ class Queue
    * it is either an answer or prints "error: cannot pop off empty queue." with " "
    * 
    */
-    string pop()
+  string pop()
+  {
+    if (!empty())
     {
-        if (!empty())
-        {
-            Node *temp = Front;   // temp pointer so we can delete node
-            string v = temp->val; // grab value out of node
-            Front = Front->next;  // move pointer to next node
-            delete temp;          // give mem back to system
-            return v;
-        }
-        else
-        {
-            cout << "error: cannot pop off empty queue." << endl;
-            return " ";
-        }
+      Node *temp = Front;   // temp pointer so we can delete node
+      string v = temp->val; // grab value out of node
+      Front = Front->next;  // move pointer to next node
+      delete temp;          // give mem back to system
+      return v;
     }
+    else
+    {
+      cout << "error: cannot pop off empty queue." << endl;
+      return " ";
+    }
+  }
     
     /**
   * Function Push:
@@ -137,8 +140,17 @@ class Queue
     //it checks the conditions for
     //Front reaching NULL and
     //temp's value's length comparing with the length of the number read in
-    while(temp != NULL && temp->val.length() < n->val.length()){
+    //location for new node
+    while(temp != NULL && temp->val.length() < v.length()){
       //temp2 follows temp
+      temp2 = temp; 
+      temp = temp->next;
+    }
+    //location for new node
+    //this one is for same length in alphabethic order
+    while(temp != NULL && temp->val.length() == v.length() && v > temp->val){
+        //temp2 follows temp
+        //swaps 
       temp2 = temp; 
       temp = temp->next;
     }
@@ -150,18 +162,19 @@ class Queue
       Rear = n;
     }
     
-    //this swaps the places
+    //this is where the insert happens
     else if(temp2 == NULL){
       n->next = Front;
       Front = n;
     }
     
-   else if(temp2 < temp){
+   else{
       temp2->next = n;  //next pointer of temp2 points to n
       n->next = temp;   //its linking the pointers
     }
     
-   }
+    
+  }
    /**
 * Function empty:
 *   is called to check if the queue is empty if so then Front doesn't exist
@@ -192,9 +205,9 @@ class Queue
       temp = temp->next;
     }
     cout << endl;
-    }
+  }
 /**
- * pop()
+ * pop(string &v)
  * it pops an item off the Queue
  * it modify Front
  * 
@@ -222,6 +235,29 @@ class Queue
        return false;
       }
     }
+    
+    /**
+ * Remainder(ofstream &outfile)
+ * the method has Front stored in temp
+ * this method is accessed after the pop method so it prints the words that didn't pop off. 
+ * params: outfile called
+ * returns: void
+ * 
+ */
+  
+  void LeftOvers(ofstream &out){
+    //n points to Front
+    Node *n = Front;
+    //The header
+    out << endl << endl;
+    out << "Animals Remaining on the Queue (in order of priority): \n";
+    //if its not empty
+    //it'll outfile the remaining queue
+    while(!empty()){
+      out << n->val << endl;
+      n = n->next;
+    }
+  }
 };
 
 int main()
@@ -237,7 +273,9 @@ int main()
   Queue Q;
   string animal; // animal name
   string cond; // cond is condition/method so it can be push or pop
-    
+  outfile << "Arshia Clare\n";
+  outfile << "Program 2\n\n";
+  outfile << "Animals Popped off the Queue:\n";
   while(infile >> cond)
   {
     infile >> animal;
@@ -252,4 +290,5 @@ int main()
       outfile  << animal << endl;
     }
   }
+  Q.LeftOvers(outfile);
 }
