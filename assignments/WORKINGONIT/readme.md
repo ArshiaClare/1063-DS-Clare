@@ -1,0 +1,57 @@
+#include <iostream>
+#include <fstream>
+#include <string>
+
+using namespace std;
+
+struct Node{
+  string Data;
+
+  Node *Prev;
+  Node *Next;
+  Node(string x){
+      Data = x;
+      Prev = NULL;
+      Next = NULL;
+  }
+};
+
+class DBList{
+  private:
+    Node *Head;
+    Node *Tail;
+    Node *Current;
+    Node* _Find(string);
+    void rPrint(Node*);
+    void rPrint1(Node*);
+public:
+    DBList(); 
+    void InsertFront(string);
+    void InsertFront(Node*&);
+    void InsertRear(string);
+    void InsertRear(Node*&);
+    void InsertInOrder(string);
+    void PriorityInsert(string Data);
+    bool Delete(string);   //Removes item from list
+    bool Find(string);     //Locate and see if exists
+    bool Update(string,string);   //Change existing value
+    void Print();
+    void Print(int);
+    void rPrint();
+};
+
+int main() {
+  ifstream fin("animals.txt");
+    
+    while(!fin.eof()){
+      fin>>a;
+      
+      if(rand() % 2 == 0)
+        List.InsertRear(a);
+      else
+        List.InsertFront(a);
+      
+      List.InsertRear(a);
+
+    }
+}
