@@ -22,6 +22,8 @@
 ///////////////////////////////////////////////////////////////////
 
 
+Filename: eliminated.txt
+
 This is the user prompted multiplier: 3
 First: - trout
 - capybara
