@@ -1,4 +1,3 @@
-`
 ///////////////////////////////////////////////////////////////////
 // ProgramName: Program Three - Survival of the Lucky
 // Author: Arshia Clare
@@ -46,4 +45,3 @@ First: - trout
 - moose
 - falcon
 Winner: flamingo!!!
-`
