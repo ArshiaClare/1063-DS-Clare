@@ -287,4 +287,5 @@ void DBList::Header(ofstream &outfile){
   outfile << "// Semester: Spring 2018\n";
   outfile << "// Date: 27 04 2018\n";
   outfile << "///////////////////////////////////////////////////////////////////\n\n\n";
+  outfile << "Filename: eliminated.txt\n\n";
 }
